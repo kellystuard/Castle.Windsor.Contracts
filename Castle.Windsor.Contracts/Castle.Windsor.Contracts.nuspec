@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>Castle.Windsor.Contracts</id>
+		<version>0.5.4</version>
+		<title>Castle Windsor Code Contracts</title>
+		<authors>Kelly Stuard</authors>
+		<projectUrl>https://github.com/kellystuard/Castle.Windsor.Contracts</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Unofficial Microsoft Code Contracts for Castle Windsor.</description>
+		<dependencies>
+			<dependency id="Castle.Windsor" version="[3.2.1]" />
+		</dependencies>
+		<references>
+		</references>
+	</metadata>
+	<files>
+		<file src="Castle.Windsor.Contracts\bin\Release\CodeContracts\Castle.Windsor.Contracts.dll" target="tools\net40\CodeContracts\" />
+		<file src="CodeContracts.targets" target="build\net40\Castle.Windsor.Contracts.targets" />
+	</files>
+</package>
