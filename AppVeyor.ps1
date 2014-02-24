@@ -6,6 +6,7 @@ Param (
 $nuGetApiKeySecure = $variables["NuGetApiKeySecure"]
 .\.nuget\NuGet.exe setApiKey $nuGetApiKeySecure
 
+Write-Output $outFolder
 Get-ChildItem $outFolder -Filter *.nupkg | `
 Foreach-Object {
 	Write-Output $_.FullName
