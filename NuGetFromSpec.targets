@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- Property that enables building a package from a spec -->
+		<BuildPackageFromSpec Condition=" '$(BuildPackageFromSpec)' == '' ">false</BuildPackageFromSpec>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- Commands -->
+		<BuildFromSpecCommand>$(NuGetCommand) pack "$(MSBuildProjectDirectory)\Castle.Windsor.Contracts.nuspec" -Version "$(Version)" -Properties "Configuration=$(Configuration);Platform=$(Platform)" $(NonInteractiveSwitch) -OutputDirectory "$(PackageOutputDir)" -symbols</BuildFromSpecCommand>
+
+		<!-- Make the build depend on building a package from a spec -->
+		<BuildDependsOn Condition="$(BuildPackageFromSpec) == 'true'">
+			$(BuildDependsOn);
+			BuildPackageFromSpec;
+		</BuildDependsOn>
+	</PropertyGroup>
+
+	<Target Name="BuildPackageFromSpec" AfterTargets="Build" Condition="$(BuildPackageFromSpec) == 'true'">
+		<Exec Command="$(BuildFromSpecCommand)"
+					Condition=" '$(OS)' != 'Windows_NT' " />
+
+		<Exec Command="$(BuildFromSpecCommand)"
+					LogStandardErrorAsError="true"
+					Condition=" '$(OS)' == 'Windows_NT' " />
+	</Target>
+</Project>
