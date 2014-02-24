@@ -7,7 +7,7 @@
 
 	<PropertyGroup>
 		<!-- Commands -->
-		<BuildFromSpecCommand>$(NuGetCommand) pack "$(MSBuildProjectDirectory)\Castle.Windsor.Contracts.nuspec" -Version "$(Version)" -Properties "Configuration=$(Configuration);Platform=$(Platform)" $(NonInteractiveSwitch) -OutputDirectory "$(PackageOutputDir)" -symbols</BuildFromSpecCommand>
+		<BuildFromSpecCommand>$(NuGetCommand) pack "$(MSBuildProjectDirectory)\Castle.Windsor.Contracts.nuspec" -Version "$(Version)" -Properties "Configuration=$(Configuration);Platform=$(Platform);OutputDirectory=$(PackageOutputDir);" $(NonInteractiveSwitch) -OutputDirectory "$(PackageOutputDir)" -symbols</BuildFromSpecCommand>
 
 		<!-- Make the build depend on building a package from a spec -->
 		<BuildDependsOn Condition="$(BuildPackageFromSpec) == 'true'">

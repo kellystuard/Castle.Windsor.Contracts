@@ -13,7 +13,7 @@
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="bin\Release\CodeContracts\Castle.Windsor.Contracts.dll" target="tools\net40" />
+		<file src="$OutputDirectory$\CodeContracts\Castle.Windsor.Contracts.dll" target="tools\net40" />
 		<file src="Castle.Windsor.Contracts.targets" target="build\net40" />
 	</files>
 </package>
