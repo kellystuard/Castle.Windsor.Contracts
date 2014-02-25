@@ -42,5 +42,9 @@ Write-Output $projectVersion
 Write-Output $projectBuildNumber
 
 
+$tempSubFolder = $tempFolder + Castle.Windsor.Contracts
+Write-Output $tempSubFolder
+Get-ChildItem $tempSubFolder | Format-Table -Property Name, LastWriteTime
+
 $nuGetApiKeySecure = $variables["NuGetApiKeySecure"]
 .\.nuget\NuGet.exe setApiKey $nuGetApiKeySecure
