@@ -113,6 +113,9 @@
   <ItemGroup>
     <Compile Include="IWindsorContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration\Component.cs" />
+    <Compile Include="Registration\ComponentRegistration.cs" />
+    <Compile Include="Registration\IRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Castle.Windsor.Contracts.nuspec" />
