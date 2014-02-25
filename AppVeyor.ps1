@@ -28,20 +28,19 @@ foreach($name in $variables.keys)
 }
 
 Write-Output $scriptPath
+Get-ChildItem $scriptPath | Format-Table -Property Name, LastWriteTime
 Write-Output $buildFolder
+Get-ChildItem $buildFolder | Format-Table -Property Name, LastWriteTime
 Write-Output $srcFolder
+Get-ChildItem $srcFolder | Format-Table -Property Name, LastWriteTime
 Write-Output $outFolder
+Get-ChildItem $outFolder | Format-Table -Property Name, LastWriteTime
 Write-Output $tempFolder
+Get-ChildItem $tempFolder | Format-Table -Property Name, LastWriteTime
 Write-Output $projectName
 Write-Output $projectVersion
 Write-Output $projectBuildNumber
 
+
 $nuGetApiKeySecure = $variables["NuGetApiKeySecure"]
 .\.nuget\NuGet.exe setApiKey $nuGetApiKeySecure
-
-Write-Output $outFolder
-Get-ChildItem $scriptPath | Format-Table -Property Name, LastWriteTime
-Get-ChildItem $buildFolder | Format-Table -Property Name, LastWriteTime
-Get-ChildItem $srcFolder | Format-Table -Property Name, LastWriteTime
-Get-ChildItem $outFolder | Format-Table -Property Name, LastWriteTime
-Get-ChildItem $tempFolder | Format-Table -Property Name, LastWriteTime
