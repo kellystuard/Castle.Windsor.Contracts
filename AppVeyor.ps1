@@ -48,3 +48,8 @@ Get-ChildItem $tempSubFolder | Format-Table -Property Name, LastWriteTime
 
 $nuGetApiKeySecure = $variables["NuGetApiKeySecure"]
 .\.nuget\NuGet.exe setApiKey $nuGetApiKeySecure
+
+$tempFolder + "\Castle.Windsor.Contracts" | Get-ChildItem -Filter "*.nupkg" | % {
+	Write-Output "Publishing " + $_.Name
+	.\.nuget\NuGet.exe push $_.FullName
+}

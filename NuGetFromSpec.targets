@@ -7,7 +7,8 @@
 
 	<PropertyGroup>
 		<!-- Commands -->
-		<BuildFromSpecCommand>$(NuGetCommand) pack "$(MSBuildProjectDirectory)\Castle.Windsor.Contracts.nuspec" -Version "$(Appveyor_ProjectVersion)" -Properties "Configuration=$(Configuration);Platform=$(Platform);OutputDirectory=$(PackageOutputDir);" $(NonInteractiveSwitch) -OutputDirectory "$(PackageOutputDir)" -Symbols -NoPackageAnalysis</BuildFromSpecCommand>
+		<BuildFromSpecCommand>$(NuGetCommand) pack "$(MSBuildProjectDirectory)\Castle.Windsor.Contracts.nuspec" -Version "$(Appveyor_ProjectVersion)" -Properties "Configuration=$(Configuration);Platform=$(Platform);OutputDirectory=$(PackageOutputDir);" $(NonInteractiveSwitch) -OutputDirectory "$(PackageOutputDir)" -NoPackageAnalysis</BuildFromSpecCommand>
+		<!-- The -NoPackageAnalysis is for a warning thrown when a dll is put in the tools directory (or in the not-lib directory). -->
 
 		<!-- Make the build depend on building a package from a spec -->
 		<BuildDependsOn Condition="$(BuildPackageFromSpec) == 'true'">
