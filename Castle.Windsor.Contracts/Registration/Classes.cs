@@ -37,6 +37,12 @@ namespace Castle.MicroKernel.Registration
 			throw new NotImplementedException();
 		}
 
+		public static FromAssemblyDescriptor FromAssemblyInDirectory(AssemblyFilter filter)
+		{
+			Contract.Ensures(Contract.Result<FromAssemblyDescriptor>() != null);
+			throw new NotImplementedException();
+		}
+
 		public static FromAssemblyDescriptor FromAssemblyInThisApplication()
 		{
 			Contract.Ensures(Contract.Result<FromAssemblyDescriptor>() != null);
