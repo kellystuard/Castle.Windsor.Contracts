@@ -13,7 +13,7 @@ namespace Castle.Windsor
 		T Resolve<T>();
 		object Resolve(Type service);
 
-		public T[] ResolveAll<T>();
+		T[] ResolveAll<T>();
 	}
 
 	[ContractClassFor(typeof(IWindsorContainer))]
