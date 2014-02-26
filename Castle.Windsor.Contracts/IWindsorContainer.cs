@@ -12,6 +12,8 @@ namespace Castle.Windsor
 
 		T Resolve<T>();
 		object Resolve(Type service);
+
+		public T[] ResolveAll<T>();
 	}
 
 	[ContractClassFor(typeof(IWindsorContainer))]
@@ -41,6 +43,13 @@ namespace Castle.Windsor
 
 		void IDisposable.Dispose()
 		{
+			throw new NotImplementedException();
+		}
+
+		T[] IWindsorContainer.ResolveAll<T>()
+		{
+			Contract.Ensures(Contract.Result<T[]>() != null);
+			Contract.Ensures(Contract.ForAll(Contract.Result<T[]>(), c => c != null));
 			throw new NotImplementedException();
 		}
 	}
